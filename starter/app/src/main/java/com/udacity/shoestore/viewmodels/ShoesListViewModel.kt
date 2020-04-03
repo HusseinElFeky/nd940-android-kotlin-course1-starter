@@ -15,8 +15,10 @@ class ShoesListViewModel : ViewModel() {
         _shoesLiveData.postValue(mutableListOf())
     }
 
-    fun addShoe(shoe: Shoe) {
-        _shoesLiveData.value?.add(shoe)
+    fun addShoe(shoe: Shoe?) {
+        shoe?.let {
+            _shoesLiveData.value?.add(it)
+        }
     }
 
     fun isShoesListEmpty(): Boolean {

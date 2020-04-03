@@ -2,6 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <import type="com.udacity.shoestore.common.Converter" />
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -77,7 +87,8 @@
                         android:id="@+id/et_shoe_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapWords" />
+                        android:inputType="textCapWords"
+                        android:text="@={shoe.name}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,7 +109,8 @@
                         android:id="@+id/et_company"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapWords" />
+                        android:inputType="textCapWords"
+                        android:text="@={shoe.company}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,7 +131,8 @@
                         android:id="@+id/et_shoe_size"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberDecimal"
+                        android:text="@={Converter.doubleToString(shoe.size)}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -141,7 +154,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textMultiLine|textCapSentences"
-                        android:maxLines="4" />
+                        android:maxLines="4"
+                        android:text="@={shoe.description}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

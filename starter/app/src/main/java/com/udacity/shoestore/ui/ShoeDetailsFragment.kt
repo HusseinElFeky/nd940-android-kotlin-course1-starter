@@ -33,6 +33,7 @@ class ShoeDetailsFragment : BaseFragment() {
             false
         )
         binding.lifecycleOwner = this
+        binding.shoe = Shoe("", null, "", "")
 
         addFilledTextWatchers()
         initClickListeners()
@@ -65,14 +66,7 @@ class ShoeDetailsFragment : BaseFragment() {
                         )
                     )
                 ) {
-                    viewModel.addShoe(
-                        Shoe(
-                            etShoeName.text.toString(),
-                            etShoeSize.text.toString().toDouble(),
-                            etCompany.text.toString(),
-                            etDescription.text.toString()
-                        )
-                    )
+                    viewModel.addShoe(binding.shoe)
                     navController.navigateUp()
                 }
             }
