@@ -35,6 +35,10 @@
     <string name="no_products">No products in stock.</string>
 
     <!-- Shoes Details Screen -->
+    <string name="num_1">1</string>
+    <string name="num_2">2</string>
+    <string name="num_3">3</string>
+    <string name="num_4">4</string>
     <string name="shoe_name">Shoe Name</string>
     <string name="company">Company</string>
     <string name="shoe_size">Shoe Size</string>

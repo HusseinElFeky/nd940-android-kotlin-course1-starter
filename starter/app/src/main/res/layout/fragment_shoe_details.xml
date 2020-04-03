@@ -4,9 +4,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -15,19 +13,65 @@
             app:layout_constraintBottom_toTopOf="@id/btn_cancel"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:padding="16dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_label1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num_1"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/til_shoe_name"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_label2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num_2"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/til_company"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_label3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num_3"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/til_shoe_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_label4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num_4"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/til_description"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier_labels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="end"
+                    app:constraint_referenced_ids="tv_label1,tv_label2,tv_label3,tv_label4" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_shoe_name"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:hint="@string/shoe_name"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/barrier_labels"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_shoe_name"
@@ -40,11 +84,15 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_company"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:hint="@string/company"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/barrier_labels"
+                    app:layout_constraintTop_toBottomOf="@id/til_shoe_name">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_company"
@@ -57,11 +105,15 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_shoe_size"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:hint="@string/shoe_size"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/barrier_labels"
+                    app:layout_constraintTop_toBottomOf="@id/til_company">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_shoe_size"
@@ -74,11 +126,15 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_description"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:hint="@string/description"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/barrier_labels"
+                    app:layout_constraintTop_toBottomOf="@id/til_shoe_size">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_description"
@@ -89,7 +145,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
 
