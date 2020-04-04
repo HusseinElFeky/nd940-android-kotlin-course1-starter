@@ -21,20 +21,17 @@ class WelcomeFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
         binding.lifecycleOwner = this
-
-        initClickListeners()
+        binding.handler = this
 
         return binding.root
-    }
-
-    private fun initClickListeners() {
-        binding.btnContinue.setOnClickListener {
-            navController.navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
-        }
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         menu.findItem(R.id.action_sign_out).isVisible = false
+    }
+
+    fun navigateToInstructions() {
+        navController.navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
     }
 }

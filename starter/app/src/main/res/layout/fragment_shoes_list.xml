@@ -7,6 +7,10 @@
         <import type="android.view.View" />
 
         <variable
+            name="handler"
+            type="com.udacity.shoestore.ui.ShoesListFragment" />
+
+        <variable
             name="viewModel"
             type="com.udacity.shoestore.viewmodels.ShoesListViewModel" />
 
@@ -59,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
+            android:onClick="@{() -> handler.navigateToShoeDetails()}"
             android:src="@drawable/ic_add" />
 
     </FrameLayout>

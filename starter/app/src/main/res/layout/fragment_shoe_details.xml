@@ -7,6 +7,10 @@
         <import type="com.udacity.shoestore.common.Converter" />
 
         <variable
+            name="handler"
+            type="com.udacity.shoestore.ui.ShoeDetailsFragment" />
+
+        <variable
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
 
@@ -170,6 +174,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="8dp"
+            android:onClick="@{() -> handler.cancel()}"
             android:text="@string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_save"
@@ -182,6 +187,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:onClick="@{() -> handler.save()}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

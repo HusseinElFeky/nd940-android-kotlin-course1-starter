@@ -26,20 +26,17 @@ class InstructionsFragment : BaseFragment() {
             false
         )
         binding.lifecycleOwner = this
-
-        initClickListeners()
+        binding.handler = this
 
         return binding.root
-    }
-
-    private fun initClickListeners() {
-        binding.btnStartExploring.setOnClickListener {
-            navController.navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoesListFragment())
-        }
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         menu.findItem(R.id.action_sign_out).isVisible = false
+    }
+
+    fun navigateToShoesList() {
+        navController.navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoesListFragment())
     }
 }

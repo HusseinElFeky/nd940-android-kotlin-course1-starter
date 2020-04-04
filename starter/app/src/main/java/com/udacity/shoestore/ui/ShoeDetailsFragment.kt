@@ -33,10 +33,10 @@ class ShoeDetailsFragment : BaseFragment() {
             false
         )
         binding.lifecycleOwner = this
+        binding.handler = this
         binding.shoe = Shoe("", null, "", "")
 
         addFilledTextWatchers()
-        initClickListeners()
 
         return binding.root
     }
@@ -50,31 +50,29 @@ class ShoeDetailsFragment : BaseFragment() {
         }
     }
 
-    private fun initClickListeners() {
-        with(binding) {
-            btnCancel.setOnClickListener {
-                navController.navigateUp()
-            }
-
-            btnSave.setOnClickListener {
-                if (isEverythingFilled(
-                        listOf(
-                            tilShoeName,
-                            tilCompany,
-                            tilShoeSize,
-                            tilDescription
-                        )
-                    )
-                ) {
-                    viewModel.addShoe(binding.shoe)
-                    navController.navigateUp()
-                }
-            }
-        }
-    }
-
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         menu.findItem(R.id.action_sign_out).isVisible = false
+    }
+
+    fun cancel() {
+        navController.navigateUp()
+    }
+
+    fun save() {
+        with(binding) {
+            if (isEverythingFilled(
+                    listOf(
+                        tilShoeName,
+                        tilCompany,
+                        tilShoeSize,
+                        tilDescription
+                    )
+                )
+            ) {
+                viewModel.addShoe(binding.shoe)
+                navController.navigateUp()
+            }
+        }
     }
 }

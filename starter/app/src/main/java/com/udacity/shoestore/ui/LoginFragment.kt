@@ -21,6 +21,7 @@ class LoginFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         binding.lifecycleOwner = this
+        binding.handler = this
 
         addFilledTextWatchers()
         initClickListeners()
@@ -37,21 +38,13 @@ class LoginFragment : BaseFragment() {
 
     private fun initClickListeners() {
         with(binding) {
-            btnLogin.setOnClickListener {
-                if (isEverythingFilled(listOf(tilEmail, tilPassword))) {
-                    PreferencesHelper.isLoggedIn = true
-                    navController.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-                }
-            }
-
             tvCreateAccount.setClickableText(
                 getString(R.string.create_one_now),
                 "${getString(R.string.no_account)} ${getString(
                     R.string.create_one_now
                 )}"
             ) {
-                PreferencesHelper.isLoggedIn = true
-                navController.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+                navigateToWelcome()
             }
         }
     }
@@ -59,5 +52,18 @@ class LoginFragment : BaseFragment() {
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         menu.findItem(R.id.action_sign_out).isVisible = false
+    }
+
+    private fun navigateToWelcome() {
+        PreferencesHelper.isLoggedIn = true
+        navController.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+    }
+
+    fun login() {
+        with(binding) {
+            if (isEverythingFilled(listOf(tilEmail, tilPassword))) {
+                navigateToWelcome()
+            }
+        }
     }
 }

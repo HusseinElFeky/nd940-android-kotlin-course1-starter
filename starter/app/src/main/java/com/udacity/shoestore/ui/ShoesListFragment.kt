@@ -27,22 +27,15 @@ class ShoesListFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoes_list, container, false)
         binding.lifecycleOwner = this
+        binding.handler = this
+        binding.viewModel = viewModel
 
-        initClickListeners()
-        initViewModel()
+        initObservables()
 
         return binding.root
     }
 
-    private fun initClickListeners() {
-        binding.fabAddShoe.setOnClickListener {
-            navController.navigate(ShoesListFragmentDirections.actionShoesListFragmentToShoesDetailsFragment())
-        }
-    }
-
-    private fun initViewModel() {
-        binding.viewModel = viewModel
-
+    private fun initObservables() {
         viewModel.shoesLiveData.observe(this) {
             binding.llShoesList.removeAllViews()
             for (i in 0 until it.size) {
@@ -61,5 +54,9 @@ class ShoesListFragment : BaseFragment() {
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu.findItem(R.id.action_sign_out).isVisible = true
+    }
+
+    fun navigateToShoeDetails() {
+        navController.navigate(ShoesListFragmentDirections.actionShoesListFragmentToShoeDetailsFragment())
     }
 }
