@@ -16,6 +16,11 @@
 
     </data>
 
+    <!--
+    ConstraintLayout is better than LinearLayout here, as it allows
+    to align the bottom buttons with the ScrollView above it
+    appropriately, without the need to resort to nested ViewGroups.
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,6 +32,11 @@
             app:layout_constraintBottom_toTopOf="@id/btn_cancel"
             app:layout_constraintTop_toTopOf="parent">
 
+            <!--
+            ConstraintLayout is better than LinearLayout here, as it allows
+            to align the input fields with the labels at the left through a
+            barrier, without the need to resort to nested ViewGroups.
+            -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

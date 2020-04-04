@@ -16,10 +16,18 @@
 
     </data>
 
+    <!--
+    FrameLayout is used here, since there are two ViewGroups above each
+    other, one when there are no items, and another when there are items.
+    -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--
+        LinearLayout is the best choice here, since the layout is simple,
+        and both views are above each other. No need for ConstraintLayout.
+        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

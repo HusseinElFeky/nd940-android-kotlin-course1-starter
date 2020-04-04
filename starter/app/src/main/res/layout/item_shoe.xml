@@ -11,11 +11,24 @@
 
     </data>
 
+    <!--
+    LinearLayout is used here to easily add a padding around the item,
+    and add a list divider below it with no padding. Using only one
+    ConstraintLayout for the whole layout would also work, but one will
+    then have to add a margin and more constraints for every view
+    inside it, so LinearLayout is much simpler in that case.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!--
+        ConstraintLayout is the most appropriate ViewGroup here, since
+        the layout is a little bit more complex, and using any other
+        ViewGroup would mostly involve nested ViewGroups, which will
+        decrease the app performance.
+        -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
