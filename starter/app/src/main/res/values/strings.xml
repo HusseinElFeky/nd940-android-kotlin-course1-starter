@@ -28,13 +28,13 @@
 
     <!-- Instructions Screen -->
     <string name="get_started">Get Started</string>
-    <string name="explore_shoe_store">Before exploring our available products, we would like to tell you some instructions on how to use the app first.</string>
+    <string name="explore_shoe_store">In the next screen, press the add button to add a new shoe.</string>
     <string name="start_exploring">Start Exploring</string>
 
     <!-- Shoes List Screen -->
     <string name="no_products">No products in stock.</string>
 
-    <!-- Shoes Details Screen -->
+    <!-- Shoe Details Screen -->
     <string name="num_1">1</string>
     <string name="num_2">2</string>
     <string name="num_3">3</string>
